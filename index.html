@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Reading Vault — 3D Library & Autonomous Archive</title>
+    <title>The Reading Vault — Immersive 3D Library & Archive</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -13,7 +13,7 @@
                 extend: {
                     colors: {
                         vault: {
-                            950: '#080c10',
+                            950: '#07090d',
                             900: '#0d1117',
                             800: '#161b22',
                             700: '#21262d',
@@ -29,119 +29,118 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body class="bg-vault-950 text-gray-100 font-sans min-h-screen selection:bg-blue-500 selection:text-white overflow-x-hidden">
 
-    <!-- 3D Header & Controls -->
+    <!-- 3D Header & Editorial Controls -->
     <header class="sticky top-0 z-50 bg-vault-900/95 backdrop-blur-md border-b border-vault-700/80 px-4 lg:px-12 py-5 shadow-2xl">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
 
-            <!-- Logo & 3D Title -->
+            <!-- Logo & Title -->
             <div class="flex items-center space-x-3.5">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-700 to-vault-900 flex items-center justify-center shadow-lg shadow-blue-500/30 border border-blue-400/40">
-                    <svg class="w-6 h-6 text-white drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-700 to-vault-900 flex items-center justify-center shadow-lg shadow-blue-500/25 border border-blue-400/30">
+                    <svg class="w-5 h-5 text-white drop-shadow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                     </svg>
                 </div>
                 <div>
-                    <h1 class="text-2xl font-extrabold tracking-wider font-['Cinzel'] bg-gradient-to-r from-blue-300 via-indigo-100 to-purple-300 bg-clip-text text-transparent drop-shadow-md">THE READING VAULT</h1>
-                    <p class="text-xs text-vault-accent font-medium tracking-wide">Permanent 3D Archive • Autonomous Daily Curation</p>
+                    <h1 class="text-xl font-bold tracking-wider font-['Cinzel'] bg-gradient-to-r from-blue-300 via-indigo-100 to-purple-300 bg-clip-text text-transparent">THE READING VAULT</h1>
+                    <p class="text-[11px] font-['JetBrains_Mono'] text-vault-accent tracking-wide">Authentic 3D Bookshelves • Permanent Archive</p>
                 </div>
             </div>
 
-            <!-- 3D Search Bar -->
+            <!-- Search Bar -->
             <div class="relative w-full md:w-80">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-400">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
                 </span>
-                <input type="text" id="searchInput" placeholder="Search archive by title, author..." class="w-full bg-vault-800 text-sm text-gray-200 pl-10 pr-4 py-3 rounded-xl border border-vault-600 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all shadow-inner">
+                <input type="text" id="searchInput" placeholder="Search archive by title, author..." class="w-full bg-vault-800 text-sm text-gray-200 pl-10 pr-4 py-2.5 rounded-xl border border-vault-600 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 transition-all shadow-inner font-['Inter']">
             </div>
 
         </div>
 
-        <!-- 3D Category Tabs -->
-        <div class="max-w-7xl mx-auto flex items-center justify-start md:justify-center gap-2.5 mt-5 overflow-x-auto pb-2 scrollbar-none">
-            <button class="category-btn btn-3d active-tab px-5 py-2 rounded-xl text-xs font-semibold text-white whitespace-nowrap" data-category="all">All Shelves</button>
-            <button class="category-btn btn-3d px-5 py-2 rounded-xl text-xs font-semibold text-gray-300 whitespace-nowrap" data-category="ai">Artificial Intelligence</button>
-            <button class="category-btn btn-3d px-5 py-2 rounded-xl text-xs font-semibold text-gray-300 whitespace-nowrap" data-category="science">Science & Tech</button>
-            <button class="category-btn btn-3d px-5 py-2 rounded-xl text-xs font-semibold text-gray-300 whitespace-nowrap" data-category="self improvement">Self Improvement</button>
-            <button class="category-btn btn-3d px-5 py-2 rounded-xl text-xs font-semibold text-gray-300 whitespace-nowrap" data-category="brain">Brain & Cognition</button>
-            <button class="category-btn btn-3d px-5 py-2 rounded-xl text-xs font-semibold text-gray-300 whitespace-nowrap" data-category="making money">Making Money</button>
-            <button class="category-btn btn-3d px-5 py-2 rounded-xl text-xs font-semibold text-gray-300 whitespace-nowrap" data-category="freelancing">Freelancing</button>
+        <!-- Category Tabs -->
+        <div class="max-w-7xl mx-auto flex items-center justify-start md:justify-center gap-2 mt-4 overflow-x-auto pb-2 scrollbar-none">
+            <button class="category-btn btn-editorial active-tab px-4 py-2 rounded-xl text-xs font-semibold text-white whitespace-nowrap" data-category="all">All Shelves</button>
+            <button class="category-btn btn-editorial px-4 py-2 rounded-xl text-xs font-semibold text-gray-300 whitespace-nowrap" data-category="ai">Artificial Intelligence</button>
+            <button class="category-btn btn-editorial px-4 py-2 rounded-xl text-xs font-semibold text-gray-300 whitespace-nowrap" data-category="science">Science & Tech</button>
+            <button class="category-btn btn-editorial px-4 py-2 rounded-xl text-xs font-semibold text-gray-300 whitespace-nowrap" data-category="self improvement">Self Improvement</button>
+            <button class="category-btn btn-editorial px-4 py-2 rounded-xl text-xs font-semibold text-gray-300 whitespace-nowrap" data-category="brain">Brain & Cognition</button>
+            <button class="category-btn btn-editorial px-4 py-2 rounded-xl text-xs font-semibold text-gray-300 whitespace-nowrap" data-category="making money">Making Money</button>
+            <button class="category-btn btn-editorial px-4 py-2 rounded-xl text-xs font-semibold text-gray-300 whitespace-nowrap" data-category="freelancing">Freelancing</button>
         </div>
     </header>
 
     <!-- Main Content Area -->
-    <main class="max-w-7xl mx-auto px-4 lg:px-12 py-10 space-y-16">
+    <main class="max-w-7xl mx-auto px-4 lg:px-12 py-10 space-y-12">
 
-        <!-- Active Book Reader Drawer (Appears below when a 3D book is taken out) -->
-        <section id="readerDrawer" class="hidden transform transition-all duration-500 ease-out bg-vault-800 border-2 border-blue-500/50 rounded-2xl p-6 lg:p-10 shadow-2xl shadow-blue-900/40 relative">
-            <button id="closeDrawer" class="absolute top-5 right-5 text-gray-400 hover:text-white btn-3d p-2.5 rounded-xl transition-all">
+        <!-- Active Book Reader Drawer -->
+        <section id="readerDrawer" class="hidden transform transition-all duration-500 ease-out bg-vault-800 border-2 border-blue-500/40 rounded-2xl p-6 lg:p-8 shadow-2xl shadow-blue-900/30 relative">
+            <button id="closeDrawer" class="absolute top-4 right-4 text-gray-400 hover:text-white btn-editorial p-2 rounded-xl transition-all">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                <!-- 3D Book Preview -->
-                <div class="lg:col-span-4 flex justify-center py-6">
-                    <div id="drawerBookCover" class="w-48 h-64 rounded-xl shadow-2xl p-6 flex flex-col justify-between transform hover:scale-105 transition-transform cursor-pointer border border-white/20 bg-gradient-to-br from-blue-800 to-indigo-950">
+                <!-- Book Preview -->
+                <div class="lg:col-span-4 flex justify-center py-4">
+                    <div id="drawerBookCover" class="w-44 h-60 rounded-lg shadow-2xl p-5 flex flex-col justify-between transform hover:scale-105 transition-transform cursor-pointer border border-white/20 bg-gradient-to-br from-blue-800 to-indigo-950">
                         <div>
-                            <span id="drawerCategory" class="text-[10px] uppercase tracking-widest px-2.5 py-1 rounded bg-black/40 font-semibold text-white">AI</span>
+                            <span id="drawerCategory" class="text-[9px] font-['JetBrains_Mono'] uppercase tracking-widest px-2 py-0.5 rounded bg-black/40 font-semibold text-white">AI</span>
                             <h3 id="drawerBookTitle" class="text-sm font-bold mt-4 font-['Playfair_Display'] leading-snug text-white">Book Title Here</h3>
                         </div>
-                        <div class="text-xs font-medium opacity-90">
+                        <div class="text-[11px] font-['Inter'] font-medium opacity-90">
                             <p id="drawerAuthor">By Author Name</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Book Summary & Permanent Archive Meta -->
+                <!-- Details & Permanent Metadata -->
                 <div class="lg:col-span-8 space-y-4">
-                    <div class="flex flex-wrap items-center gap-3">
-                        <span id="drawerWebsiteBadge" class="text-xs bg-blue-500/20 text-blue-300 px-3.5 py-1 rounded-full border border-blue-500/30 font-medium">Substack</span>
-                        <span id="drawerPublishedDate" class="text-xs text-gray-400 bg-vault-900 px-3 py-1 rounded-md border border-vault-600">Published: 2026-11-18</span>
-                        <span id="drawerDateAdded" class="text-xs text-emerald-400 bg-emerald-950/40 px-3 py-1 rounded-md border border-emerald-500/30 font-medium">Permanently Added: 2026-11-18</span>
+                    <div class="flex flex-wrap items-center gap-2.5">
+                        <span id="drawerWebsiteBadge" class="text-xs font-['JetBrains_Mono'] bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full border border-blue-500/30 font-medium">Substack</span>
+                        <span id="drawerPublishedDate" class="text-xs font-['JetBrains_Mono'] text-gray-400 bg-vault-900 px-3 py-1 rounded-md border border-vault-600">Published: 2026-11-18</span>
+                        <span id="drawerDateAdded" class="text-xs font-['JetBrains_Mono'] text-emerald-400 bg-emerald-950/40 px-3 py-1 rounded-md border border-emerald-500/30 font-medium">Added: 2026-11-18</span>
                     </div>
 
                     <h2 id="drawerTitleHeading" class="text-2xl lg:text-3xl font-bold font-['Playfair_Display'] text-white"></h2>
                     <p class="text-sm text-gray-400">Author: <span id="drawerAuthorName" class="text-gray-200 font-semibold"></span></p>
 
                     <div class="border-t border-vault-600 pt-4 mt-2">
-                        <h4 class="text-xs uppercase tracking-wider text-blue-400 font-semibold mb-2">5-Line Summary & Key Takeaways</h4>
-                        <div id="drawerSummaryText" class="text-sm text-gray-300 space-y-2 leading-relaxed bg-vault-900/80 p-5 rounded-xl border border-vault-700 shadow-inner">
+                        <h4 class="text-xs font-['JetBrains_Mono'] uppercase tracking-wider text-blue-400 font-semibold mb-2">5-Line Summary & Key Takeaways</h4>
+                        <div id="drawerSummaryText" class="text-sm font-['Inter'] text-gray-300 space-y-2 leading-relaxed bg-vault-900/80 p-4 rounded-xl border border-vault-700 shadow-inner">
                             <!-- 5 lines injected here -->
                         </div>
                     </div>
 
                     <div class="pt-4 flex items-center gap-4">
-                        <a id="drawerReadBtn" href="#" target="_blank" class="btn-3d inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5">
+                        <a id="drawerReadBtn" href="#" target="_blank" class="btn-editorial inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5">
                             <span>Read Full Article on Website</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                             </svg>
                         </a>
-                        <button id="shelfReturnBtn" class="btn-3d text-xs text-gray-300 hover:text-white px-5 py-3 rounded-xl transition-all">Return Book to Shelf</button>
+                        <button id="shelfReturnBtn" class="btn-editorial text-xs text-gray-300 hover:text-white px-5 py-3 rounded-xl transition-all">Return Book to Shelf</button>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 3D Bookshelves Container -->
-        <div id="shelvesContainer" class="space-y-16">
+        <div id="shelvesContainer" class="space-y-12">
             <!-- Dynamic 3D shelves rendered here via JavaScript -->
         </div>
 
     </main>
 
-    <!-- 3D Footer -->
-    <footer class="bg-vault-900 border-t border-vault-700 py-12 mt-24 text-center text-xs text-gray-400 space-y-4 shadow-2xl">
-        <p class="font-['Cinzel'] text-sm tracking-widest text-gray-300">THE READING VAULT • PERMANENT 3D ARCHIVE</p>
-        <p>Permanently stores all daily additions with full publication dates and date-added timestamps.</p>
-        <p class="text-gray-500">© 2026 Reading Vault Website. Built with 3D Immersive Design.</p>
+    <!-- Footer -->
+    <footer class="bg-vault-900 border-t border-vault-700 py-10 mt-20 text-center text-xs text-gray-400 space-y-3 shadow-2xl">
+        <p class="font-['Cinzel'] text-xs tracking-widest text-gray-300">THE READING VAULT • AUTHENTIC 3D BOOKSHELF ARCHIVE</p>
+        <p class="font-['JetBrains_Mono'] text-[11px] text-gray-500">Permanent retention with full publication and addition metadata.</p>
     </footer>
 
     <!-- JavaScript Application Logic -->
