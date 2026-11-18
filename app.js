@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'freelancing': 'Freelancing & Solopreneurship'
     };
 
-    // Load Books with performance caching
     async function loadBooks() {
         try {
             const response = await fetch('books.json');
@@ -44,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // High-Performance Virtualized / Chunked Rendering for 600+ Books
     function renderShelves() {
         shelvesContainer.innerHTML = '';
 
@@ -52,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ? Object.keys(categoryTitles)
             : [currentCategory];
 
-        // Use DocumentFragment for zero reflow overhead
         const fragment = document.createDocumentFragment();
 
         categoriesToRender.forEach(catKey => {
@@ -78,20 +75,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="w-3 h-3 rounded-full bg-blue-500 shadow-sm shadow-blue-500/50"></div>
                     <h2 class="text-lg font-bold font-['Cinzel'] tracking-wide text-gray-100">${categoryTitles[catKey]}</h2>
                 </div>
-                <span class="text-[11px] font-['JetBrains_Mono'] text-gray-300 bg-vault-800 px-3 py-1 rounded-lg border border-vault-600 shadow-inner">${filteredBooks.length} Volumes</span>
+                <span class="text-[11px] font-['JetBrains_Mono'] text-gray-300 bg-vault-800 px-3 py-1 rounded-lg border border-vault-600 shadow-inner">${filteredBooks.length} Verified Volumes</span>
             `;
             shelfSection.appendChild(headerDiv);
 
             const bookshelfUnit = document.createElement('div');
             bookshelfUnit.className = 'bookshelf-unit';
 
-            const shelfRowScroll = document.createElement('div');
-            shelfRowScroll.className = 'shelf-row-scroll scrollbar-none';
+            const shelfRowSlider = document.createElement('div');
+            shelfRowSlider.className = 'shelf-row-slider scrollbar-none';
 
             if (filteredBooks.length === 0) {
-                shelfRowScroll.innerHTML = `<p class="text-xs text-gray-500 italic w-full text-center py-8 font-['Inter']">No volumes found on this shelf.</p>`;
+                shelfRowSlider.innerHTML = `<p class="text-xs text-gray-500 italic w-full text-center py-8 font-['Inter']">No verified volumes found on this shelf.</p>`;
             } else {
-                // Optimization: Render books efficiently in a single innerHTML batch or fragment loop
+                const slidingTrack = document.createElement('div');
+                slidingTrack.className = 'sliding-track';
+
+                // Generate book HTML elements
                 const booksHtml = filteredBooks.map(book => {
                     const dailyBadge = book.isDailyPick ? `<span class="absolute -top-3 -right-2 bg-amber-500 text-black text-[8px] font-extrabold px-1.5 py-0.5 rounded shadow-lg animate-pulse z-20">NEW</span>` : '';
                     return `
@@ -109,18 +109,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     `;
                 }).join('');
 
-                shelfRowScroll.innerHTML = booksHtml;
+                // Duplicate track content once to create a seamless infinite sliding loop effect
+                slidingTrack.innerHTML = booksHtml + booksHtml;
+                shelfRowSlider.appendChild(slidingTrack);
 
-                // Attach event listeners efficiently using event delegation
-                shelfRowScroll.querySelectorAll('.book-3d').forEach((bookEl, idx) => {
-                    const book = filteredBooks[idx];
+                // Attach event listeners to both sets of duplicated books in the track
+                shelfRowSlider.querySelectorAll('.book-3d').forEach((bookEl, idx) => {
+                    // Map back to original index in filteredBooks
+                    const realIdx = idx % filteredBooks.length;
+                    const book = filteredBooks[realIdx];
                     bookEl.addEventListener('click', () => {
                         trigger3DExtraction(book, bookEl);
                     });
                 });
             }
 
-            bookshelfUnit.appendChild(shelfRowScroll);
+            bookshelfUnit.appendChild(shelfRowSlider);
             shelfSection.appendChild(bookshelfUnit);
             fragment.appendChild(shelfSection);
         });
@@ -128,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
         shelvesContainer.appendChild(fragment);
     }
 
-    // 3D Book Extraction Animation & Drawer Opening
     function trigger3DExtraction(book, bookEl) {
         bookEl.classList.add('book-falling');
 
@@ -138,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 450);
     }
 
-    // Open Reader Drawer
     function openReaderDrawer(book) {
         drawerCategory.textContent = book.category.toUpperCase();
         drawerBookTitle.textContent = book.title;
@@ -167,7 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
     closeDrawerBtn.addEventListener('click', closeDrawer);
     shelfReturnBtn.addEventListener('click', closeDrawer);
 
-    // Optimized Debounced Search Input
     let searchTimeout;
     searchInput.addEventListener('input', (e) => {
         clearTimeout(searchTimeout);

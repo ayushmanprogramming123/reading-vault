@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap');
 
 /* Custom Dark Editorial Scrollbar */
 ::-webkit-scrollbar {
@@ -57,7 +57,7 @@
                 inset 0 -2px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* Realistic 3D Bookshelf Structure (Proportional, Intimate, Real Bookshelf) */
+/* Realistic 3D Bookshelf Structure */
 .bookshelf-unit {
     background: linear-gradient(180deg, #14100d 0%, #0d0a08 85%, #060504 100%);
     border: 2px solid #261d18;
@@ -70,9 +70,9 @@
     border-radius: 8px;
     padding: 24px 16px 8px 16px;
     margin-bottom: 2rem;
+    overflow: hidden;
 }
 
-/* Wood ledge highlight & shadow reflection */
 .bookshelf-unit::before {
     content: '';
     position: absolute;
@@ -95,21 +95,43 @@
     border-radius: 0 0 6px 6px;
 }
 
-/* Horizontal Scroll / Layout for Books on Shelf */
-.shelf-row-scroll {
+/* Automatic Sliding Effect Container */
+.shelf-row-slider {
     display: flex;
-    gap: 6px; /* Tightly packed like a real physical shelf */
+    gap: 8px;
     align-items: flex-end;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: hidden;
     padding-bottom: 12px;
-    scroll-behavior: smooth;
+    width: 100%;
+    position: relative;
 }
 
-/* Realistic 3D Book (Proportional Spine: Narrow Width, Realistic Height) */
+/* Continuous Sliding Animation Track */
+.sliding-track {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    animation: autoSlideShelf 40s linear infinite;
+    will-change: transform;
+}
+
+.shelf-row-slider:hover .sliding-track {
+    animation-play-state: paused; /* Pause on hover so users can easily select books */
+}
+
+@keyframes autoSlideShelf {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Realistic 3D Book */
 .book-3d {
-    width: 42px; /* Slim, realistic spine width matching reference photo 3 */
-    height: 195px; /* Proportional book height */
+    width: 42px;
+    height: 195px;
     position: relative;
     transform-style: preserve-3d;
     transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -125,7 +147,6 @@
     filter: drop-shadow(6px 14px 16px rgba(0, 0, 0, 0.9));
 }
 
-/* Spine Surface */
 .book-spine {
     position: absolute;
     inset: 0;
@@ -142,7 +163,6 @@
     border-right: 1.5px solid rgba(0, 0, 0, 0.6);
 }
 
-/* Top paper edge illusion */
 .book-spine::before {
     content: '';
     position: absolute;
@@ -155,7 +175,6 @@
     box-shadow: inset 0 1px 2px rgba(0,0,0,0.4);
 }
 
-/* Vertical Spine Typography */
 .spine-title {
     writing-mode: vertical-rl;
     text-orientation: mixed;
@@ -170,7 +189,6 @@
     letter-spacing: 0.4px;
 }
 
-/* Fall-down animation */
 @keyframes bookFallDown {
     0% {
         transform: translateY(0) rotateX(0) rotateY(0) scale(1);
