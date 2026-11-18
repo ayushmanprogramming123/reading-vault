@@ -6,12 +6,12 @@
     "category": "ai",
     "website": "Import AI Substack",
     "url": "https://importai.substack.com/",
-    "color": "from-indigo-600 to-blue-800",
+    "color": "from-indigo-800 to-blue-950",
     "textColor": "text-indigo-100",
-    "spineStyle": "border-l-4 border-indigo-400",
     "summary": "1. Explores recent breakthroughs in scaling neural network parameters and compute.\n2. Analyzes safety implications and emerging autonomous agent capabilities.\n3. Discusses international policy frameworks governing frontier models.\n4. Highlights open-source contributions shaking up closed AI labs.\n5. Essential weekly briefing for tracking the velocity of artificial intelligence.",
-    "date": "2026-11-18",
-    "isDailyPick": false
+    "publishedDate": "2026-11-18",
+    "dateAdded": "2026-11-18",
+    "isDailyPick": true
   },
   {
     "id": 2,
@@ -20,12 +20,11 @@
     "category": "ai",
     "website": "The Algorithmic Bridge",
     "url": "https://thealgorithmicbridge.substack.com/",
-    "color": "from-purple-600 to-indigo-900",
+    "color": "from-purple-900 to-indigo-950",
     "textColor": "text-purple-100",
-    "spineStyle": "border-l-4 border-purple-400",
     "summary": "1. Demystifies complex machine learning architectures into practical workflows.\n2. Examines the philosophy of machine consciousness and reasoning.\n3. Reviews practical tooling for developers building LLM applications.\n4. Evaluates real-world deployment challenges in enterprise environments.\n5. Offers crystal-clear insights without the marketing hype.",
-    "date": "2026-11-15",
-    "isDailyPick": false
+    "publishedDate": "2026-11-15",
+    "dateAdded": "2026-11-15"
   },
   {
     "id": 3,
@@ -34,12 +33,11 @@
     "category": "ai",
     "website": "One Useful Thing",
     "url": "https://www.oneusefulthing.org/",
-    "color": "from-blue-700 to-cyan-900",
+    "color": "from-blue-900 to-cyan-950",
     "textColor": "text-blue-100",
-    "spineStyle": "border-l-4 border-cyan-400",
     "summary": "1. Investigates how AI transforms pedagogy and higher education.\n2. Provides actionable prompts for creative and analytical problem-solving.\n3. Analyzes workforce productivity shifts driven by automation.\n4. Explores human-AI collaboration in writing and design.\n5. Grounded experiments in real-world human augmentation.",
-    "date": "2026-11-12",
-    "isDailyPick": false
+    "publishedDate": "2026-11-12",
+    "dateAdded": "2026-11-12"
   },
   {
     "id": 4,
@@ -48,12 +46,11 @@
     "category": "ai",
     "website": "Ahead of AI",
     "url": "https://sebastianraschka.substack.com/",
-    "color": "from-sky-600 to-blue-900",
+    "color": "from-sky-900 to-blue-950",
     "textColor": "text-sky-100",
-    "spineStyle": "border-l-4 border-sky-300",
     "summary": "1. Breaks down landmark academic papers in deep learning.\n2. Code-focused explanations of transformer mechanisms and attention.\n3. Practical fine-tuning strategies for open-source LLMs.\n4. Benchmarks performance across diverse hardware configurations.\n5. The definitive guide for practitioner machine learning engineers.",
-    "date": "2026-11-10",
-    "isDailyPick": false
+    "publishedDate": "2026-11-10",
+    "dateAdded": "2026-11-10"
   },
   {
     "id": 5,
@@ -62,12 +59,11 @@
     "category": "ai",
     "website": "Hugging Face Blog",
     "url": "https://huggingface.co/blog",
-    "color": "from-amber-600 to-yellow-800",
+    "color": "from-amber-900 to-yellow-950",
     "textColor": "text-amber-100",
-    "spineStyle": "border-l-4 border-yellow-400",
     "summary": "1. Announces cutting-edge open weights models and multimodal releases.\n2. Step-by-step tutorials on quantization and efficient inference.\n3. Community spotlights on creative AI applications.\n4. Benchmarks for vision, audio, and language models.\n5. Core hub updates for the open-source AI ecosystem.",
-    "date": "2026-11-08",
-    "isDailyPick": false
+    "publishedDate": "2026-11-08",
+    "dateAdded": "2026-11-08"
   },
   {
     "id": 6,
@@ -76,12 +72,11 @@
     "category": "science",
     "website": "ByteByteGo",
     "url": "https://blog.bytebytego.com/",
-    "color": "from-emerald-700 to-teal-900",
+    "color": "from-emerald-900 to-teal-950",
     "textColor": "text-emerald-100",
-    "spineStyle": "border-l-4 border-emerald-400",
     "summary": "1. Visual breakdowns of large-scale system design patterns.\n2. Explains caching strategies, load balancing, and database sharding.\n3. Real-world case studies of Netflix, Uber, and Twitter scale.\n4. Essential preparation for senior software engineering interviews.\n5. Clear diagrams simplifying complex backend engineering.",
-    "date": "2026-11-17",
-    "isDailyPick": false
+    "publishedDate": "2026-11-17",
+    "dateAdded": "2026-11-17"
   },
   {
     "id": 7,
@@ -90,12 +85,11 @@
     "category": "science",
     "website": "The Pragmatic Engineer",
     "url": "https://blog.pragmaticengineer.com/",
-    "color": "from-teal-600 to-emerald-900",
+    "color": "from-teal-900 to-emerald-950",
     "textColor": "text-teal-100",
-    "spineStyle": "border-l-4 border-teal-300",
     "summary": "1. Insights into software development industry compensation and trends.\n2. Engineering management best practices for high-growth startups.\n3. Deep analysis of major tech outages and architectural failures.\n4. Career growth frameworks for senior and staff engineers.\n5. Written by an experienced tech lead and engineering manager.",
-    "date": "2026-11-14",
-    "isDailyPick": false
+    "publishedDate": "2026-11-14",
+    "dateAdded": "2026-11-14"
   },
   {
     "id": 8,
@@ -104,12 +98,11 @@
     "category": "science",
     "website": "Netflix TechBlog",
     "url": "https://netflixtechblog.com/",
-    "color": "from-red-700 to-rose-950",
+    "color": "from-red-900 to-rose-950",
     "textColor": "text-red-100",
-    "spineStyle": "border-l-4 border-red-500",
     "summary": "1. Pioneering cloud architecture and resilient microservices.\n2. Advanced chaos engineering principles and automated testing.\n3. Data streaming pipelines handling petabytes of daily telemetry.\n4. UI performance optimization for millions of global smart TVs.\n5. Industry-defining engineering essays from a streaming giant.",
-    "date": "2026-11-11",
-    "isDailyPick": false
+    "publishedDate": "2026-11-11",
+    "dateAdded": "2026-11-11"
   },
   {
     "id": 9,
@@ -118,12 +111,11 @@
     "category": "science",
     "website": "Uber Engineering",
     "url": "https://www.uber.com/blog/engineering/",
-    "color": "from-zinc-800 to-stone-900",
+    "color": "from-zinc-900 to-stone-950",
     "textColor": "text-zinc-100",
-    "spineStyle": "border-l-4 border-zinc-400",
     "summary": "1. Massive geo-spatial indexing and real-time dispatch algorithms.\n2. Mobile app architecture optimizations for low-connectivity users.\n3. Large-scale data warehousing and machine learning platforms.\n4. Infrastructure resilience across global metropolitan areas.\n5. Cutting-edge distributed computing case studies.",
-    "date": "2026-11-09",
-    "isDailyPick": false
+    "publishedDate": "2026-11-09",
+    "dateAdded": "2026-11-09"
   },
   {
     "id": 10,
@@ -132,12 +124,11 @@
     "category": "science",
     "website": "martinfowler.com",
     "url": "https://martinfowler.com/",
-    "color": "from-cyan-700 to-blue-950",
+    "color": "from-cyan-900 to-blue-950",
     "textColor": "text-cyan-100",
-    "spineStyle": "border-l-4 border-cyan-400",
     "summary": "1. Timeless principles of clean code and software refactoring.\n2. Microservices design trade-offs and domain-driven design.\n3. Continuous delivery practices and automated deployment pipelines.\n4. Evolving software architectures without rewriting codebases.\n5. Gold standard thought leadership in software craftsmanship.",
-    "date": "2026-11-06",
-    "isDailyPick": false
+    "publishedDate": "2026-11-06",
+    "dateAdded": "2026-11-06"
   },
   {
     "id": 11,
@@ -146,12 +137,11 @@
     "category": "self improvement",
     "website": "Farnam Street (Brain Food)",
     "url": "https://fs.blog/newsletter/",
-    "color": "from-amber-700 to-orange-950",
+    "color": "from-amber-950 to-stone-950",
     "textColor": "text-amber-100",
-    "spineStyle": "border-l-4 border-amber-400",
     "summary": "1. Curates mental models from physics, economics, and psychology.\n2. Sharpens critical thinking and long-term decision-making skills.\n3. Explores human cognitive biases and how to avoid them.\n4. Timeless wisdom for continuous learning and personal growth.\n5. Weekly intellectual nourishment for high performers.",
-    "date": "2026-11-16",
-    "isDailyPick": false
+    "publishedDate": "2026-11-16",
+    "dateAdded": "2026-11-16"
   },
   {
     "id": 12,
@@ -160,12 +150,11 @@
     "category": "self improvement",
     "website": "Tiago Forte Substack",
     "url": "https://www.tiagoforte.com/",
-    "color": "from-violet-700 to-purple-950",
+    "color": "from-violet-900 to-purple-950",
     "textColor": "text-violet-100",
-    "spineStyle": "border-l-4 border-violet-400",
     "summary": "1. Actionable frameworks for digital note-taking and organization.\n2. CODE method: Capture, Organize, Distill, Express.\n3. Eliminating information overload in the modern knowledge economy.\n4. Boosting personal productivity through externalized memory.\n5. Transform how you read, think, and create.",
-    "date": "2026-11-13",
-    "isDailyPick": false
+    "publishedDate": "2026-11-13",
+    "dateAdded": "2026-11-13"
   },
   {
     "id": 13,
@@ -174,12 +163,11 @@
     "category": "self improvement",
     "website": "James Clear 3-2-1",
     "url": "https://jamesclear.com/3-2-1",
-    "color": "from-orange-600 to-amber-900",
+    "color": "from-orange-900 to-amber-950",
     "textColor": "text-orange-100",
-    "spineStyle": "border-l-4 border-orange-400",
     "summary": "1. Weekly newsletter sharing 3 short ideas, 2 quotes, and 1 question.\n2. Practical systems for habit formation and breaking bad routines.\n3. Incremental 1% improvements compounding over time.\n4. Wisdom distilled from psychology and behavioral science.\n5. Brief, impactful reading for daily self-mastery.",
-    "date": "2026-11-10",
-    "isDailyPick": false
+    "publishedDate": "2026-11-10",
+    "dateAdded": "2026-11-10"
   },
   {
     "id": 14,
@@ -188,12 +176,11 @@
     "category": "self improvement",
     "website": "The Marginalian",
     "url": "https://www.themarginalian.org/",
-    "color": "from-rose-700 to-pink-950",
+    "color": "from-rose-900 to-pink-950",
     "textColor": "text-rose-100",
-    "spineStyle": "border-l-4 border-rose-400",
     "summary": "1. Deeply reflective essays exploring literature, art, and philosophy.\n2. Examines what it means to live a meaningful, examined life.\n3. Unearths forgotten wisdom from history's greatest writers and scientists.\n4. Lyrical prose paired with stunning vintage illustrations.\n5. An antidote to shallow digital consumption.",
-    "date": "2026-11-18",
-    "isDailyPick": true
+    "publishedDate": "2026-11-07",
+    "dateAdded": "2026-11-07"
   },
   {
     "id": 15,
@@ -202,12 +189,11 @@
     "category": "self improvement",
     "website": "Bakadesuyo",
     "url": "https://www.bakadesuyo.com/",
-    "color": "from-yellow-700 to-amber-900",
+    "color": "from-yellow-900 to-amber-950",
     "textColor": "text-yellow-100",
-    "spineStyle": "border-l-4 border-yellow-300",
     "summary": "1. Uses rigorous scientific studies to debunk common self-help myths.\n2. Explores why some successful people break the rules and thrive.\n3. Practical advice on emotional intelligence, grit, and happiness.\n4. Entertaining, evidence-based behavioral psychology essays.\n5. Understand the real levers of personal achievement.",
-    "date": "2026-11-04",
-    "isDailyPick": false
+    "publishedDate": "2026-11-04",
+    "dateAdded": "2026-11-04"
   },
   {
     "id": 16,
@@ -216,12 +202,11 @@
     "category": "brain",
     "website": "LessWrong",
     "url": "https://www.lesswrong.com/",
-    "color": "from-blue-800 to-indigo-950",
+    "color": "from-blue-950 to-slate-950",
     "textColor": "text-blue-100",
-    "spineStyle": "border-l-4 border-blue-400",
     "summary": "1. Advanced essays on Bayesian reasoning and probabilistic thinking.\n2. Explores AI alignment theory and existential risk management.\n3. Overcoming cognitive biases and refining intellectual honesty.\n4. Deep discussions on philosophy, math, and decision theory.\n5. Rigorous intellectual playground for deep thinkers.",
-    "date": "2026-11-16",
-    "isDailyPick": false
+    "publishedDate": "2026-11-16",
+    "dateAdded": "2026-11-16"
   },
   {
     "id": 17,
@@ -230,12 +215,11 @@
     "category": "brain",
     "website": "Edge.org",
     "url": "https://www.edge.org/",
-    "color": "from-purple-800 to-slate-950",
+    "color": "from-purple-950 to-slate-950",
     "textColor": "text-purple-100",
-    "spineStyle": "border-l-4 border-purple-400",
     "summary": "1. Annual multi-disciplinary question answered by world-class scientists.\n2. Explores cosmology, neuroscience, evolutionary biology, and cognition.\n3. Challenges orthodox assumptions about human intelligence and universe.\n4. Transcripts of intellectual salons with Nobel laureates.\n5. Expands the boundaries of human scientific comprehension.",
-    "date": "2026-11-12",
-    "isDailyPick": false
+    "publishedDate": "2026-11-12",
+    "dateAdded": "2026-11-12"
   },
   {
     "id": 18,
@@ -244,12 +228,11 @@
     "category": "brain",
     "website": "Ribbonfarm",
     "url": "https://www.ribbonfarm.com/",
-    "color": "from-emerald-800 to-green-950",
+    "color": "from-emerald-950 to-slate-950",
     "textColor": "text-emerald-100",
-    "spineStyle": "border-l-4 border-emerald-400",
     "summary": "1. Unconventional essays on network culture and organizational sociology.\n2. Explores the mechanics of techno-industrial progress and futurology.\n3. Deep mental models for understanding complex social systems.\n4. Provocative thinking that challenges conventional career paths.\n5. High-signal intellectual exploration for independent minds.",
-    "date": "2026-11-09",
-    "isDailyPick": false
+    "publishedDate": "2026-11-09",
+    "dateAdded": "2026-11-09"
   },
   {
     "id": 19,
@@ -258,12 +241,11 @@
     "category": "brain",
     "website": "Wait But Why",
     "url": "https://waitbutby.com",
-    "color": "from-amber-800 to-stone-900",
+    "color": "from-stone-900 to-zinc-950",
     "textColor": "text-amber-100",
-    "spineStyle": "border-l-4 border-amber-300",
     "summary": "1. Long-form illustrated essays explaining artificial intelligence, Fermi paradox.\n2. Examines human psychology, procrastination, and societal evolution.\n3. Stick-figure illustrations paired with rigorous multi-month research.\n4. Makes extremely dense topics accessible and wildly entertaining.\n5. A masterclass in curiosity-driven learning.",
-    "date": "2026-11-05",
-    "isDailyPick": false
+    "publishedDate": "2026-11-05",
+    "dateAdded": "2026-11-05"
   },
   {
     "id": 20,
@@ -272,12 +254,11 @@
     "category": "brain",
     "website": "Astral Codex Ten",
     "url": "https://astralcodexten.substack.com/",
-    "color": "from-teal-800 to-cyan-950",
+    "color": "from-teal-950 to-slate-950",
     "textColor": "text-teal-100",
-    "spineStyle": "border-l-4 border-teal-400",
     "summary": "1. Psychiatrist's essays on medicine, psychiatry, and human behavior.\n2. Nuanced explorations of contentious social and technological debates.\n3. Thought experiments challenging orthodox policy frameworks.\n4. Rigorous statistical reasoning applied to everyday psychology.\n5. Cult-classic long-form writing of exceptional quality.",
-    "date": "2026-11-01",
-    "isDailyPick": false
+    "publishedDate": "2026-11-01",
+    "dateAdded": "2026-11-01"
   },
   {
     "id": 21,
@@ -286,12 +267,11 @@
     "category": "making money",
     "website": "Stratechery",
     "url": "https://stratechery.com/",
-    "color": "from-blue-900 to-slate-950",
+    "color": "from-blue-950 to-indigo-950",
     "textColor": "text-blue-100",
-    "spineStyle": "border-l-4 border-blue-500",
     "summary": "1. Aggregation theory applied to modern tech monopolies and startups.\n2. Strategic analysis of Apple, Google, Meta, Microsoft, and Amazon.\n3. How business models dictate industry economics and power shifts.\n4. Essential reading for startup founders and technology investors.\n5. Definitive market commentary shaping Silicon Valley thinking.",
-    "date": "2026-11-17",
-    "isDailyPick": false
+    "publishedDate": "2026-11-17",
+    "dateAdded": "2026-11-17"
   },
   {
     "id": 22,
@@ -300,12 +280,11 @@
     "category": "making money",
     "website": "Not Boring Substack",
     "url": "https://www.notboring.co/",
-    "color": "from-pink-800 to-rose-950",
+    "color": "from-pink-950 to-rose-950",
     "textColor": "text-pink-100",
-    "spineStyle": "border-l-4 border-pink-400",
     "summary": "1. Optimistic deep dives into biotech, crypto, AI, and venture capital.\n2. Breaks down complex company business models into engaging stories.\n3. Evaluates emerging technological moats and market opportunities.\n4. Actionable insights for modern investors and entrepreneurs.\n5. Energetic analysis of the future of global commerce.",
-    "date": "2026-11-13",
-    "isDailyPick": false
+    "publishedDate": "2026-11-13",
+    "dateAdded": "2026-11-13"
   },
   {
     "id": 23,
@@ -314,12 +293,11 @@
     "category": "making money",
     "website": "Finology Essays",
     "url": "https://finology.in/",
-    "color": "from-emerald-900 to-slate-950",
+    "color": "from-emerald-950 to-slate-950",
     "textColor": "text-emerald-100",
-    "spineStyle": "border-l-4 border-emerald-400",
     "summary": "1. Wealth creation principles and long-term equity investing.\n2. Behavioral finance and overcoming emotional market traps.\n3. Case studies of successful Indian and global corporations.\n4. Practical financial literacy and capital allocation frameworks.\n5. Built for investors looking to compound wealth patiently.",
-    "date": "2026-11-10",
-    "isDailyPick": false
+    "publishedDate": "2026-11-10",
+    "dateAdded": "2026-11-10"
   },
   {
     "id": 24,
@@ -328,12 +306,11 @@
     "category": "making money",
     "website": "Collaborative Fund Essays",
     "url": "https://collaborativefund.com/blog/",
-    "color": "from-amber-900 to-stone-950",
+    "color": "from-stone-950 to-amber-950",
     "textColor": "text-amber-100",
-    "spineStyle": "border-l-4 border-amber-400",
     "summary": "1. Explores how human behavior dictates financial success.\n2. The importance of risk, luck, and room for error in wealth.\n3. Why doing well with money has little to do with raw intelligence.\n4. Timeless essays on contentment and financial independence.\n5. Masterclass in storytelling around wealth and human nature.",
-    "date": "2026-11-06",
-    "isDailyPick": false
+    "publishedDate": "2026-11-06",
+    "dateAdded": "2026-11-06"
   },
   {
     "id": 25,
@@ -342,12 +319,11 @@
     "category": "making money",
     "website": "Y Combinator Essays",
     "url": "https://paulgraham.com/articles.html",
-    "color": "from-orange-800 to-red-950",
+    "color": "from-orange-950 to-red-950",
     "textColor": "text-orange-100",
-    "spineStyle": "border-l-4 border-orange-400",
     "summary": "1. Legendary essays on startup incubation and venture creation.\n2. How to have original ideas and identify outlier opportunities.\n3. Economics of high-growth tech companies and founder psychology.\n4. Clear, unvarnished advice on building valuable things.\n5. Foundation reading for every aspiring entrepreneur.",
-    "date": "2026-11-02",
-    "isDailyPick": false
+    "publishedDate": "2026-11-02",
+    "dateAdded": "2026-11-02"
   },
   {
     "id": 26,
@@ -356,12 +332,11 @@
     "category": "freelancing",
     "website": "Indie Hackers",
     "url": "https://www.indiehackers.com/",
-    "color": "from-indigo-900 to-violet-950",
+    "color": "from-indigo-950 to-slate-950",
     "textColor": "text-indigo-100",
-    "spineStyle": "border-l-4 border-indigo-400",
     "summary": "1. Interviews with solo founders building profitable SaaS projects.\n2. Transparent breakdowns of revenue, marketing, and acquisition.\n3. Overcoming early-stage freelancing and product hurdles.\n4. Community-driven advice on independent financial freedom.\n5. Actionable playbooks for solo developers and consultants.",
-    "date": "2026-11-15",
-    "isDailyPick": false
+    "publishedDate": "2026-11-15",
+    "dateAdded": "2026-11-15"
   },
   {
     "id": 27,
@@ -370,12 +345,11 @@
     "category": "freelancing",
     "website": "NPR Planet Money",
     "url": "https://www.npr.org/sections/money/",
-    "color": "from-cyan-900 to-blue-950",
+    "color": "from-cyan-950 to-blue-950",
     "textColor": "text-cyan-100",
-    "spineStyle": "border-l-4 border-cyan-400",
     "summary": "1. Explores economic shifts in the modern freelance landscape.\n2. How independent contractors price services and scale clients.\n3. Global trade, remote work trends, and gig economy dynamics.\n4. Engaging storytelling making economics intuitive and practical.\n5. Essential insights for independent professionals.",
-    "date": "2026-11-11",
-    "isDailyPick": false
+    "publishedDate": "2026-11-11",
+    "dateAdded": "2026-11-11"
   },
   {
     "id": 28,
@@ -384,12 +358,11 @@
     "category": "freelancing",
     "website": "The Saturday Solopreneur",
     "url": "https://www.justinwelsh.me/",
-    "color": "from-teal-900 to-slate-950",
+    "color": "from-teal-950 to-slate-950",
     "textColor": "text-teal-100",
-    "spineStyle": "border-l-4 border-teal-400",
     "summary": "1. Step-by-step systems for transitioning from employee to solo creator.\n2. Building digital products, newsletters, and consulting funnels.\n3. Leveraging social media for organic client acquisition.\n4. High-margin, low-overhead business models for freelancers.\n5. Practical blueprint for modern solopreneurship.",
-    "date": "2026-11-08",
-    "isDailyPick": false
+    "publishedDate": "2026-11-08",
+    "dateAdded": "2026-11-08"
   },
   {
     "id": 29,
@@ -398,12 +371,11 @@
     "category": "freelancing",
     "website": "Company of One",
     "url": "https://pjrvs.com/",
-    "color": "from-rose-900 to-red-950",
+    "color": "from-rose-950 to-red-950",
     "textColor": "text-rose-100",
-    "spineStyle": "border-l-4 border-rose-400",
     "summary": "1. Why staying small can be a better business strategy than scaling.\n2. Pricing consulting and freelance services based on value.\n3. Retaining high-paying clients through exceptional communication.\n4. Setting boundaries and protecting creative energy.\n5. Wisdom for independent creators and contractors.",
-    "date": "2026-11-04",
-    "isDailyPick": false
+    "publishedDate": "2026-11-04",
+    "dateAdded": "2026-11-04"
   },
   {
     "id": 30,
@@ -412,11 +384,36 @@
     "category": "freelancing",
     "website": "Upwork Economic Index",
     "url": "https://www.upwork.com/research",
-    "color": "from-purple-955 to-slate-950",
+    "color": "from-purple-950 to-zinc-950",
     "textColor": "text-purple-100",
-    "spineStyle": "border-l-4 border-purple-400",
     "summary": "1. Data-driven reports on global remote work and freelance demand.\n2. Most in-demand skills in AI, writing, design, and development.\n3. Pricing benchmarks across international markets.\n4. Enterprise hiring trends for independent contractors.\n5. Authoritative market data for modern freelancers.",
-    "date": "2026-10-30",
-    "isDailyPick": false
+    "publishedDate": "2026-10-30",
+    "dateAdded": "2026-10-30"
+  },
+  {
+    "id": 31,
+    "title": "The New Yorker: Personal Essays & Letters",
+    "author": "Various Authors",
+    "category": "self improvement",
+    "website": "The New Yorker",
+    "url": "https://www.newyorker.com/",
+    "color": "from-amber-900 to-yellow-950",
+    "textColor": "text-amber-100",
+    "summary": "1. Celebrated literary essays and cultural critique.\n2. Personal reflections on modern society and human behavior.\n3. World-class journalism and long-form storytelling.\n4. Unrivaled editorial prose and style.\n5. Essential reading for essay enthusiasts.",
+    "publishedDate": "2026-11-14",
+    "dateAdded": "2026-11-18"
+  },
+  {
+    "id": 32,
+    "title": "Longreads: The Best Storytelling on the Web",
+    "author": "Longreads Editors",
+    "category": "brain",
+    "website": "Longreads",
+    "url": "https://longreads.com/",
+    "color": "from-cyan-900 to-blue-950",
+    "textColor": "text-cyan-100",
+    "summary": "1. Dedicated to featuring the best long-form stories and personal essays.\n2. Deep investigative journalism and immersive personal memoirs.\n3. Showcases diverse voices and profound life experiences.\n4. Curated reading lists for deep thinkers.\n5. Celebrating the art of the long-form essay.",
+    "publishedDate": "2026-11-12",
+    "dateAdded": "2026-11-18"
   }
 ]

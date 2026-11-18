@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const drawerBookTitle = document.getElementById('drawerBookTitle');
     const drawerAuthor = document.getElementById('drawerAuthor');
     const drawerWebsiteBadge = document.getElementById('drawerWebsiteBadge');
-    const drawerDate = document.getElementById('drawerDate');
+    const drawerPublishedDate = document.getElementById('drawerPublishedDate');
+    const drawerDateAdded = document.getElementById('drawerDateAdded');
     const drawerTitleHeading = document.getElementById('drawerTitleHeading');
     const drawerAuthorName = document.getElementById('drawerAuthorName');
     const drawerSummaryText = document.getElementById('drawerSummaryText');
     const drawerReadBtn = document.getElementById('drawerReadBtn');
 
-    // Category Display Names Mapping
     const categoryTitles = {
         'ai': 'Artificial Intelligence & Machine Learning',
         'science': 'Computer Science & Software Engineering',
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Render Bookshelves
+    // Render 3D Bookshelves & Rotating 3D Books
     function renderShelves() {
         shelvesContainer.innerHTML = '';
 
@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
             : [currentCategory];
 
         categoriesToRender.forEach(catKey => {
-            // Filter books by category and search query
             const filteredBooks = booksData.filter(book => {
                 const matchesCategory = book.category === catKey;
                 const matchesSearch = searchQuery === '' ||
@@ -64,107 +63,105 @@ document.addEventListener('DOMContentLoaded', () => {
                 return matchesCategory && matchesSearch;
             });
 
-            // If searching and no books match in this category, skip
             if (searchQuery !== '' && filteredBooks.length === 0) return;
 
-            // Create Shelf Section
+            // Shelf Section Wrapper
             const shelfSection = document.createElement('div');
             shelfSection.className = 'space-y-4';
 
-            // Category Header
+            // Category Header with 3D feel
             const headerDiv = document.createElement('div');
-            headerDiv.className = 'flex items-center justify-between border-b border-vault-700 pb-2';
+            headerDiv.className = 'flex items-center justify-between border-b border-vault-700 pb-3';
             headerDiv.innerHTML = `
-                <div class="flex items-center space-x-2">
-                    <div class="w-3 h-3 rounded-full bg-blue-500 shadow-sm shadow-blue-500/50"></div>
-                    <h2 class="text-lg font-bold font-['Cinzel'] tracking-wide text-gray-200">${categoryTitles[catKey]}</h2>
+                <div class="flex items-center space-x-3">
+                    <div class="w-3.5 h-3.5 rounded-full bg-blue-500 shadow-md shadow-blue-500/50"></div>
+                    <h2 class="text-xl font-bold font-['Cinzel'] tracking-wide text-gray-100 drop-shadow">${categoryTitles[catKey]}</h2>
                 </div>
-                <span class="text-xs text-gray-400 bg-vault-800 px-3 py-1 rounded-full border border-vault-700">${filteredBooks.length} Books</span>
+                <span class="text-xs text-gray-300 bg-vault-800 px-3.5 py-1.5 rounded-xl border border-vault-600 shadow-inner font-semibold">${filteredBooks.length} Permanent Books</span>
             `;
             shelfSection.appendChild(headerDiv);
 
-            // Bookshelf Track
-            const shelfTrack = document.createElement('div');
-            shelfTrack.className = 'bookshelf-shelf rounded-2xl p-6 min-h-[320px] flex items-end overflow-x-auto scrollbar-none';
+            // 3D Bookshelf Rack
+            const bookshelfRack = document.createElement('div');
+            bookshelfRack.className = 'bookshelf-rack';
+
+            const carouselWrapper = document.createElement('div');
+            carouselWrapper.className = 'bookshelf-carousel-wrapper scrollbar-none';
 
             if (filteredBooks.length === 0) {
-                shelfTrack.innerHTML = `<p class="text-xs text-gray-500 italic w-full text-center py-12">No books found matching your query on this shelf.</p>`;
+                carouselWrapper.innerHTML = `<p class="text-xs text-gray-500 italic w-full text-center py-12">No permanent books found matching your search.</p>`;
             } else {
-                const booksGrid = document.createElement('div');
-                booksGrid.className = 'flex items-end gap-5 py-4 min-w-full';
+                const track = document.createElement('div');
+                track.className = 'bookshelf-track';
 
                 filteredBooks.forEach(book => {
-                    const bookEl = document.createElement('div');
-                    bookEl.className = `book-item w-36 lg:w-40 h-64 lg:h-72 rounded-xl bg-gradient-to-b ${book.color} ${book.spineStyle} p-4 flex flex-col justify-between shadow-xl cursor-pointer relative group flex-shrink-0 select-none`;
-                    bookEl.setAttribute('data-id', book.id);
+                    const book3D = document.createElement('div');
+                    book3D.className = 'book-3d';
+                    book3D.setAttribute('data-id', book.id);
 
-                    // Daily pick badge
-                    let badgeHtml = book.isDailyPick ? `<span class="absolute -top-2.5 -right-2 bg-amber-500 text-black text-[9px] font-bold px-2 py-0.5 rounded-full shadow-md animate-pulse">NEW DAILY</span>` : '';
+                    let dailyBadge = book.isDailyPick ? `<span class="absolute -top-3 -right-2 bg-amber-500 text-black text-[8px] font-extrabold px-2 py-0.5 rounded-full shadow-lg animate-pulse z-20">NEW DAILY</span>` : '';
 
-                    bookEl.innerHTML = `
-                        ${badgeHtml}
-                        <div>
-                            <span class="text-[9px] uppercase tracking-wider px-2 py-0.5 rounded bg-black/40 text-white font-semibold">${book.category}</span>
-                            <h4 class="text-xs lg:text-sm font-bold font-['Playfair_Display'] mt-3 leading-snug text-white line-clamp-4">${book.title}</h4>
-                        </div>
-                        <div class="border-t border-white/20 pt-2 mt-auto">
-                            <p class="text-[10px] text-gray-200 font-medium truncate">${book.author}</p>
-                            <p class="text-[9px] text-gray-300 opacity-80 truncate">${book.website}</p>
+                    book3D.innerHTML = `
+                        ${dailyBadge}
+                        <div class="book-spine bg-gradient-to-b ${book.color}">
+                            <div class="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-black/40 text-white font-bold text-center mb-2">${book.category}</div>
+                            <div class="book-title-vertical text-white">${book.title}</div>
+                            <div class="border-t border-white/20 pt-1.5 mt-auto">
+                                <p class="text-[8px] text-gray-200 font-medium truncate">${book.author}</p>
+                                <p class="text-[8px] text-emerald-300 font-semibold truncate">Added: ${book.dateAdded}</p>
+                            </div>
                         </div>
                     `;
 
-                    // Click event for Fall Down Animation & Reader View
-                    bookEl.addEventListener('click', () => {
-                        triggerBookExtraction(book, bookEl);
+                    // Click event for 3D Fall-down extraction and reader view
+                    book3D.addEventListener('click', () => {
+                        trigger3DExtraction(book, book3D);
                     });
 
-                    booksGrid.appendChild(bookEl);
+                    track.appendChild(book3D);
                 });
 
-                shelfTrack.appendChild(booksGrid);
+                carouselWrapper.appendChild(track);
             }
 
-            shelfSection.appendChild(shelfTrack);
+            bookshelfRack.appendChild(carouselWrapper);
+            shelfSection.appendChild(bookshelfRack);
             shelvesContainer.appendChild(shelfSection);
         });
     }
 
-    // Book Extraction Animation & Drawer Opening
-    function triggerBookExtraction(book, bookEl) {
-        // Add fall down animation class
-        bookEl.classList.add('book-extracting');
+    // 3D Book Extraction Animation & Drawer Opening
+    function trigger3DExtraction(book, bookEl) {
+        bookEl.classList.add('book-falling');
 
         setTimeout(() => {
-            bookEl.classList.remove('book-extracting');
+            bookEl.classList.remove('book-falling');
             openReaderDrawer(book);
-        }, 500);
+        }, 550);
     }
 
-    // Open Reader Drawer
+    // Open Reader Drawer with Permanent Dates
     function openReaderDrawer(book) {
         drawerCategory.textContent = book.category.toUpperCase();
         drawerBookTitle.textContent = book.title;
         drawerAuthor.textContent = `By ${book.author}`;
         drawerWebsiteBadge.textContent = book.website;
-        drawerDate.textContent = `Published: ${book.date}`;
+        drawerPublishedDate.textContent = `Published: ${book.publishedDate}`;
+        drawerDateAdded.textContent = `Permanently Added: ${book.dateAdded}`;
         drawerTitleHeading.textContent = book.title;
         drawerAuthorName.textContent = book.author;
         drawerReadBtn.href = book.url;
 
-        // Apply same gradient color to drawer book preview
-        drawerBookCover.className = `w-48 h-64 rounded-xl shadow-2xl p-6 flex flex-col justify-between transform hover:scale-105 transition-transform cursor-pointer border border-white/20 bg-gradient-to-b ${book.color}`;
+        drawerBookCover.className = `w-48 h-64 rounded-xl shadow-2xl p-6 flex flex-col justify-between transform hover:scale-105 transition-transform cursor-pointer border border-white/20 bg-gradient-to-br ${book.color}`;
         drawerBookCover.onclick = () => window.open(book.url, '_blank');
 
-        // Format 5-line summary into list items
         const summaryLines = book.summary.split('\n');
         drawerSummaryText.innerHTML = summaryLines.map(line => `<p class="flex items-start space-x-2"><span class="text-blue-400 font-bold">•</span> <span>${line.replace(/^[0-9]+\.\s*/, '')}</span></p>`).join('');
 
-        // Show drawer and scroll smoothly to it
         readerDrawer.classList.remove('hidden');
         readerDrawer.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    // Close Reader Drawer
     function closeDrawer() {
         readerDrawer.classList.add('hidden');
     }
@@ -172,27 +169,24 @@ document.addEventListener('DOMContentLoaded', () => {
     closeDrawerBtn.addEventListener('click', closeDrawer);
     shelfReturnBtn.addEventListener('click', closeDrawer);
 
-    // Search Input Listener
     searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value.toLowerCase().trim();
         renderShelves();
     });
 
-    // Category Filter Button Listeners
     categoryBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             categoryBtns.forEach(b => {
-                b.classList.remove('active', 'bg-blue-600', 'text-white', 'shadow-md', 'shadow-blue-600/30');
-                b.classList.add('bg-vault-800', 'text-gray-300', 'hover:bg-vault-700');
+                b.classList.remove('active-tab');
+                b.classList.add('btn-3d', 'text-gray-300');
             });
-            btn.classList.add('active', 'bg-blue-600', 'text-white', 'shadow-md', 'shadow-blue-600/30');
-            btn.classList.remove('bg-vault-800', 'text-gray-300', 'hover:bg-vault-700');
+            btn.classList.add('active-tab');
+            btn.classList.remove('text-gray-300');
 
             currentCategory = btn.getAttribute('data-category');
             renderShelves();
         });
     });
 
-    // Initial Load
     loadBooks();
 });
