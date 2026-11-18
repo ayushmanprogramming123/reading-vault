@@ -1,4 +1,4 @@
-name: Daily Autonomous Book Curator & Auto-Ingestion
+name: Daily Autonomous Web Curation & Auto-Ingestion
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  curate-and-add:
+  run-curation-engine:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -22,179 +22,14 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Run Daily Auto-Ingestion & Curation Script
+      - name: Run Autonomous Web Discovery & Curation Engine
         run: |
-          node -e '
-            const fs = require("fs");
-            const filePath = "./books.json";
+          node scripts/curator.js
 
-            if (fs.existsSync(filePath)) {
-              let books = JSON.parse(fs.readFileSync(filePath, "utf8"));
-              console.log("Loaded " + books.length + " permanent books from archive.");
-
-              const today = new Date().toISOString().split("T")[0];
-
-              // Categories that must be represented with a new or recent (<= 6 months) article
-              const categories = ["ai", "science", "self improvement", "brain", "making money", "freelancing"];
-
-              // Curated pool of verified high-signal articles, stories, and essays with exact working links
-              const pool = [
-                {
-                  title: "Anthropic Research: Claude 3.5 Sonnet Architecture",
-                  author: "Anthropic Engineering",
-                  category: "ai",
-                  website: "Anthropic Research",
-                  url: "https://www.anthropic.com/news/claude-3-5-sonnet",
-                  color: "from-purple-900 to-indigo-950",
-                  summary: "1. Details advanced reasoning capabilities in frontier LLMs.\n2. Analyzes safety benchmarks and human alignment scores.\n3. Evaluates coding and agentic workflow benchmarks.\n4. Discusses latency and compute efficiency gains.\n5. Essential reading for applied AI architects."
-                },
-                {
-                  title: "OpenAI Cookbook: Advanced RAG Patterns",
-                  author: "OpenAI Research",
-                  category: "ai",
-                  website: "OpenAI Cookbook",
-                  url: "https://cookbook.openai.com/examples/related_resources",
-                  color: "from-blue-900 to-cyan-950",
-                  summary: "1. Practical code examples for vector embeddings and search.\n2. Implementing hybrid search with lexical and semantic scoring.\n3. Multi-agent orchestration frameworks.\n4. Optimizing token context windows.\n5. Production-grade patterns for LLM applications."
-                },
-                {
-                  title: "Google DeepMind: Gemini 1.5 Pro Technical Report",
-                  author: "DeepMind Science Team",
-                  category: "science",
-                  website: "Google DeepMind Blog",
-                  url: "https://deepmind.google/discover/blog/gemini-1-5-pro/",
-                  color: "from-emerald-900 to-teal-950",
-                  summary: "1. Breakthroughs in million-token context window processing.\n2. Multimodal understanding across video, audio, and code.\n3. Transformer architecture innovations for long-range recall.\n4. Benchmarks on complex reasoning tasks.\n5. Paradigm shift in foundational AI capabilities."
-                },
-                {
-                  title: "Stripe Engineering: Scaling Global Payments",
-                  author: "Stripe Architecture Team",
-                  category: "science",
-                  website: "Stripe Engineering",
-                  url: "https://stripe.com/blog/scalability",
-                  color: "from-violet-900 to-purple-950",
-                  summary: "1. Building highly available financial transaction ledgers.\n2. Handling massive traffic spikes during peak shopping seasons.\n3. Zero-downtime database migrations at scale.\n4. Resilient API design principles.\n5. Engineering excellence in fintech infrastructure."
-                },
-                {
-                  title: "The Atlantic: The Age of AI Literacy",
-                  author: "Staff Essayist",
-                  category: "self improvement",
-                  website: "The Atlantic",
-                  url: "https://www.theatlantic.com/technology/",
-                  color: "from-amber-900 to-yellow-950",
-                  summary: "1. Reflects on how human cognition adapts to generative tools.\n2. The importance of deep reading in a distracted era.\n3. Cultivating intellectual resilience and curiosity.\n4. Redefining creativity alongside machine intelligence.\n5. A thoughtful essay on modern human growth."
-                },
-                {
-                  title: "Medium Creator Hub: The Art of Digital Writing",
-                  author: "Medium Staff",
-                  category: "self improvement",
-                  website: "Medium Ideas",
-                  url: "https://medium.com/tag/productivity",
-                  color: "from-rose-900 to-pink-950",
-                  summary: "1. Crafting compelling hooks and engaging narratives.\n2. Building a consistent daily publishing habit.\n3. Understanding audience psychology and retention.\n4. Transforming personal experiences into universal lessons.\n5. Practical guide for modern essayists."
-                },
-                {
-                  title: "Aeon Magazine: The Philosophy of Time & Memory",
-                  author: "Philosophy Quarterly",
-                  category: "brain",
-                  website: "Aeon Magazine",
-                  url: "https://aeon.co/essays",
-                  color: "from-blue-950 to-slate-950",
-                  summary: "1. Philosophical inquiry into subjective time perception.\n2. How neurological memory shapes personal identity.\n3. Cross-disciplinary insights from neuroscience and phenomenology.\n4. Challenging orthodox assumptions about consciousness.\n5. Deep essay for contemplative thinkers."
-                },
-                {
-                  title: "MIT Technology Review: The Future of Human Brain Interfaces",
-                  author: "MIT Tech Review Editors",
-                  category: "brain",
-                  website: "MIT Technology Review",
-                  url: "https://www.technologyreview.com/topic/biomedicine/",
-                  color: "from-teal-950 to-slate-950",
-                  summary: "1. Advances in neural decoding and cortical implants.\n2. Ethical considerations of human cognitive enhancement.\n3. Restoring motor functions through neuro-technology.\n4. Clinical trial updates and regulatory pathways.\n5. Frontier science shaping the next century."
-                },
-                {
-                  title: "Y Combinator Blog: How to Evaluate Startup Markets",
-                  author: "YC Partners",
-                  category: "making money",
-                  website: "Y Combinator",
-                  url: "https://www.ycombinator.com/blog",
-                  color: "from-orange-950 to-red-950",
-                  summary: "1. Identifying large, growing, and underserved markets.\n2. Founder-market fit and unfair advantages.\n3. Pricing strategies for early-stage B2B software.\n4. Avoiding common pitfalls in initial go-to-market execution.\n5. Wisdom from world-class venture investors."
-                },
-                {
-                  title: "Hacker News: Bootstrapping Profitable Tech Companies",
-                  author: "HN Community",
-                  category: "making money",
-                  website: "Hacker News",
-                  url: "https://news.ycombinator.com/",
-                  color: "from-stone-950 to-amber-950",
-                  summary: "1. Real-world case studies of profitable bootstrapped startups.\n2. Lean marketing and organic customer acquisition.\n3. Managing cash flow and achieving sustainable growth.\n4. Lessons learned from failed product launches.\n5. Pragmatic financial wisdom for founders."
-                },
-                {
-                  title: "Substack Grow: Monetizing Independent Newsletters",
-                  author: "Substack Creator Team",
-                  category: "freelancing",
-                  website: "Substack Grow",
-                  url: "https://substack.com/g/grow",
-                  color: "from-indigo-950 to-slate-950",
-                  summary: "1. Strategies for converting free readers to paid subscribers.\n2. Writing valuable newsletters that retain attention.\n3. Leveraging recommendation networks for rapid growth.\n4. Setting up sustainable independent publishing businesses.\n5. Essential playbook for modern solopreneurs."
-                },
-                {
-                  title: "Product Hunt: Launching Your First Digital Product",
-                  author: "Product Hunt Editorial",
-                  category: "freelancing",
-                  website: "Product Hunt",
-                  url: "https://www.producthunt.com/",
-                  color: "from-cyan-950 to-blue-950",
-                  summary: "1. Preparing a high-impact product launch campaign.\n2. Crafting clear value propositions and landing pages.\n3. Engaging early adopters and gathering actionable feedback.\n4. Converting launch day momentum into long-term revenue.\n5. Practical guide for independent creators."
-                }
-              ];
-
-              // Ensure each category gets an automatically ingested article/story/essay
-              categories.forEach(cat => {
-                const availableForCat = pool.filter(p => p.category === cat);
-                if (availableForCat.length > 0) {
-                  // Pick one item from pool for this category
-                  const item = availableForCat[Math.floor(Math.random() * availableForCat.length)];
-
-                  // Check if already in books to avoid exact duplicates
-                  const exists = books.some(b => b.title === item.title);
-                  if (!exists) {
-                    const newBook = {
-                      id: books.length > 0 ? Math.max(...books.map(b => b.id)) + 1 : 1,
-                      title: item.title,
-                      author: item.author,
-                      category: item.category,
-                      website: item.website,
-                      url: item.url,
-                      color: item.color,
-                      summary: item.summary,
-                      publishedDate: today,
-                      dateAdded: today,
-                      isDailyPick: true
-                    };
-                    books.unshift(newBook); // Add to beginning of archive
-                    console.log("Auto-ingested new item for [" + cat + "]: " + item.title);
-                  }
-                }
-              });
-
-              // Reset daily pick flags and highlight one standout
-              books.forEach(b => b.isDailyPick = false);
-              const standout = books[Math.floor(Math.random() * books.length)];
-              standout.isDailyPick = true;
-
-              fs.writeFileSync(filePath, JSON.stringify(books, null, 2));
-              console.log("Archive successfully updated with mandatory category additions.");
-            } else {
-              console.error("Error: books.json not found!");
-              process.exit(1);
-            }
-          '
-
-      - name: Commit and Push Updated Archive
+      - name: Commit and Push Newly Ingested Vault Books
         run: |
           git config --global user.name "Reading Vault Bot"
           git config --global user.email "bot@readingvault.local"
           git add books.json
-          git commit -m "🤖 Autonomous Daily Ingestion: Added fresh articles/essays across all categories [skip ci]" || echo "No changes to commit"
+          git commit -m "🤖 Autonomous Web Curation: Discovered and added new articles across all categories [skip ci]" || echo "No changes to commit"
           git push origin main || git push origin master || echo "Push complete"
